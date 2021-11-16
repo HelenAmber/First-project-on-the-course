@@ -1,1 +1,1 @@
-# gitAmb
+# Hello Git!
