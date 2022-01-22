@@ -386,3 +386,30 @@ function calcTotal(){
     result.textContent = Math.round((88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)) * ratio);
   }
 }
+
+function getStaticInformation(selector, activeClass){
+  const elements = document.querySelectorAll(selector);
+
+  elements.forEach((elem) => {
+    elem.addEventListener('click', (e) => {
+        if(e.target.getAttribute('data-ratio')) {
+          ratio = +e.target.getAttribute('data-ratio');
+          localStorage.setItem('ratio', +e.target.getAttribute('data-ratio'));
+        } else {
+          sex = e.target.getAttribute('id');
+          localStorage.setItem('sex', e.target.getAttribute('id'));
+        }
+
+        elements.forEach(elem => {
+          elem.classList.remove(activeClass);
+        });
+
+        e.target.classList.add(activeClass);
+
+        calcTotal();
+      });
+  });
+}
+
+getStaticInformation('#gender div', 'calculating__choose-item_active');
+getStaticInformation('.calculating__choose_big div', 'calculating__choose-item_active');
