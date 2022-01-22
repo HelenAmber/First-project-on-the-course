@@ -293,4 +293,39 @@ let slideIndex = 1,
        indicators.append(dot);
        dots.push(dot);
     }
-
+    function deleteNotDigits(str){
+      return +str.replace(/\D/g, '');
+    }
+    
+    next.addEventListener('click', () => {
+      if (offset == deleteNotDigits(width) * (slides.length - 1)){
+         offset = 0;
+      } else {
+         offset += deleteNotDigits(width);
+      }
+       slidesField.style.transform = `translateX(-${offset}px)`;
+    
+       if(slideIndex == slides.length){
+         slideIndex = 1;
+       } else {
+         slideIndex++;
+       }
+       navigationStyle(); 
+    });
+    
+    prev.addEventListener('click', () => {
+      if (offset == 0){    
+         offset = deleteNotDigits(width) * (slides.length - 1);
+      } else {
+         offset -= deleteNotDigits(width);
+      }
+       slidesField.style.transform = `translateX(-${offset}px)`;
+    
+       if(slideIndex == 1){
+        slideIndex = slides.length;
+      } else {
+        slideIndex--;
+      }
+      navigationStyle();
+    });
+    
