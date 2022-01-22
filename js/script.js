@@ -328,4 +328,12 @@ let slideIndex = 1,
       }
       navigationStyle();
     });
-    
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+       const slideTo = e.target.getAttribute('data-slide-to');
+       slideIndex = slideTo;
+       offset = deleteNotDigits(width) * (slideTo - 1);
+       slidesField.style.transform = `translateX(-${offset}px)`;
+       navigationStyle();
+      });
+     });   
