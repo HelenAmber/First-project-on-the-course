@@ -373,3 +373,16 @@ function initLocalSettings(selector, activeClass){
 
 initLocalSettings('#gender div', 'calculating__choose-item_active');
 initLocalSettings('.calculating__choose_big div', 'calculating__choose-item_active');
+
+function calcTotal(){
+  if(!sex || !height || !weight || !age || !ratio){
+    result.textContent = 'Недостаточно данных';
+    return;
+  }
+
+  if (sex === 'female'){
+    result.textContent = Math.round((447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)) * ratio);
+  } else {
+    result.textContent = Math.round((88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)) * ratio);
+  }
+}
