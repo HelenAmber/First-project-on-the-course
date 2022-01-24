@@ -15,6 +15,6 @@ window.addEventListener('DOMContentLoaded', () => {
   forms('form', modalTimerId);
   modal('[data-modal]', '.modal', modalTimerId);
   slider();
-  timer();
+  timer('.timer', '2022-03-08');
   calculator();
 });
