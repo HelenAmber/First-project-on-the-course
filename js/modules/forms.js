@@ -75,4 +75,4 @@ function forms(){
      .then(data => data.json());
 }
 
-module.exports = forms;
+export default forms;

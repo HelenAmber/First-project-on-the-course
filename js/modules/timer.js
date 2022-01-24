@@ -51,4 +51,4 @@ function setClock(selector, endtime){
 setClock('.timer', deadLine);
 }
 
-module.exports = timer;
+export default timer;
