@@ -1,8 +1,8 @@
 import {closeModal, openModal} from './modal';
 
-function forms(){
+function forms(formSelector, modalTimerId){
 
-    const forms = document.querySelectorAll('form'),
+    const forms = document.querySelectorAll(formSelector),
         message = {
         loading: 'spinner.svg',
         success: 'Спасибо! Мы с Вами свяжемся',
@@ -26,9 +26,9 @@ function forms(){
         form.addEventListener('submit', (e) => {
            e.preventDefault();
         
-           const statusMessage = document.createElement('img');
-           statusMessage.src = message.loading;
-           statusMessage.style.cssText = `
+         const statusMessage = document.createElement('img');
+              statusMessage.src = message.loading;
+              statusMessage.style.cssText = `
                 display: block;
                 margin: 0 auto;
             `;
@@ -53,7 +53,7 @@ function forms(){
     function showThanksModal(message){
         const prevModalDialog = document.querySelector('.modal__dialog');
         prevModalDialog.classList.add('hide');
-        openModal();
+        openModal('.modal', modalTimerId);
 
         const thanksModal = document.createElement('div');
         thanksModal.classList.add('.modal__dialog');
@@ -69,7 +69,7 @@ function forms(){
             thanksModal.remove();
             prevModalDialog.classList.add('show');
             prevModalDialog.classList.remove('hide');
-            closeModal();
+            closeModal('.modal');
         }, 4000);
     }
 
