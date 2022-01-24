@@ -1,22 +1,18 @@
 window.addEventListener('DOMContentLoaded', () => {
-  
 
-// Add cards 
+  const tabs = require('./modules/tabs'),
+        cards = require('./modules/cards'),
+        forms = require('./modules/forms'),
+        modal = require('./modules/modal'),
+        slider = require('./modules/slider'),
+        timer = require('./modules/timer'),
+        calculator = require('./modules/calculator');
 
-
- // Timer
-
- 
-
-// Modal
-
-
-// Slider-carousel
-
-
-
-//Calculator
-
-
-
+  tabs();
+  cards();
+  forms();
+  modal();
+  slider();
+  timer();
+  calculator();
 });
